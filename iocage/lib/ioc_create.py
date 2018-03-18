@@ -130,7 +130,7 @@ class IOCCreate(object):
                             # binary.
                             cloned_release = self.release
                         else:
-                            with open(freebsd_version, "r") as r:
+                            with open(freebsd_version, "r", errors="ignore") as r:
                                 for line in r:
                                     if line.startswith("USERLAND_VERSION"):
                                         # Long lines ftw?

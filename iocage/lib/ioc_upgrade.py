@@ -114,7 +114,7 @@ class IOCUpgrade(object):
                 # 9.3-RELEASE and under don't actually have this binary
                 new_release = self.new_release
             else:
-                with open(self._freebsd_version, "r") as r:
+                with open(self._freebsd_version, "r", errors="ignore") as r:
                     for line in r:
                         if line.startswith("USERLAND_VERSION"):
                             new_release = line.rstrip().partition("=")[
@@ -249,7 +249,7 @@ class IOCUpgrade(object):
             # 9.3-RELEASE and under don't actually have this binary
             new_release = self.new_release
         else:
-            with open(self._freebsd_version, "r") as r:
+            with open(self._freebsd_version, "r", errors="ignore") as r:
                 for line in r:
                     if line.startswith("USERLAND_VERSION"):
                         new_release = line.rstrip().partition("=")[2].strip(

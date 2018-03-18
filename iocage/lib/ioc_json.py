@@ -890,7 +890,7 @@ class IOCJson(object):
                 # 9.3-RELEASE and under don't actually have this binary.
                 release = conf["release"]
             else:
-                with open(freebsd_version, "r") as r:
+                with open(freebsd_version, "r", errors="ignore") as r:
                     for line in r:
                         if line.startswith("USERLAND_VERSION"):
                             release = line.rstrip().partition("=")[2]
